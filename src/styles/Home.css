@@ -1,0 +1,111 @@
+/* ===== HOME SECTION ===== */
+
+.full{
+    padding-left: 150px;
+    padding-right: 130px;
+}
+section {
+    width: 100%;
+    display: flex;
+}
+
+/* ===== LEFT SIDE ===== */
+.left {
+    flex: 1;
+}
+
+.hero_content {
+    width: 35rem;
+
+}
+
+.hero_subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.hero_title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0b2727;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #ffb703;
+}
+
+.hero_text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #6e7074;
+}
+
+/* ===== RIGHT SIDE ===== */
+.right {
+    flex: 1;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+}
+
+/* Image / Video cards */
+.hero__img-box {
+    width: 15rem;
+    height: 27rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hero__img-box img,
+.hero__img-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.hero__img-box:nth-child(1) {
+    transform: translateY(0);
+}
+
+.hero__img-box:nth-child(2) {
+    transform: translateY(30px);
+}
+
+.hero__img-box:nth-child(3) {
+    transform: translateY(60px);
+}
+
+/* Middle card lower */
+/* .hero__img-box:nth-child(2) {
+        transform: translateY(40px);
+      } */
+/* Hover effect */
+/* .hero__img-box:hover {
+    transform: translateY(-10px);
+  } */
+
+.explore{
+    margin-top: 80px;
+}
+
+.featured_tour_title{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.experience{
+    margin-top: 50px;
+}
+
+.gallery{
+    margin-top: 50px;
+}
+.testimonials{
+    margin-top: 50px;
+}

@@ -1,0 +1,101 @@
+/* ===== SECTION ===== */
+.experience_section {
+    background: #fff;
+  }
+  
+  /* ===== CONTAINER ===== */
+  .experience_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18rem;
+  }
+  
+  /* ===== LEFT ===== */
+  .experience_left {
+    flex: 1;
+  }
+  
+  
+  .experience_left h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #0b2727;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  
+  .experience_left p {
+    color: #6e7074;
+    line-height: 1.7;
+    max-width: 450px;
+    margin-bottom: 40px;
+  }
+  
+  /* ===== STATS ===== */
+  .experience_stats {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .stat_box {
+    text-align: center;
+  }
+  
+  .stat_box h3 {
+    background: #ffb703;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .stat_box p {
+    font-size: 0.9rem;
+    color: #6e7074;
+  }
+  
+  /* ===== RIGHT ===== */
+  .experience_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image_circle {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image_circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 992px) {
+    .experience_container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .experience_stats {
+      justify-content: center;
+    }
+  
+    .experience_left p {
+      margin: 0 auto 40px;
+    }
+  }
+  
