@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Container, Row, Button } from 'reactstrap'
 import './header.css'
@@ -13,7 +13,7 @@ const nav_links = [
         display: "About"
     },
     {
-        path: "/tours",
+        path: "/tour",
         display: "Tours"
     },
 ]
@@ -39,7 +39,6 @@ const Header = () => {
                                 }
                             </ul>
                         </div>
-
 
                         {/* right side */}
                         <div className='nav-right flex gap-4'>

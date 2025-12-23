@@ -1,10 +1,9 @@
 import React from 'react'
 import '../styles/home.css'
-import { Container, Row } from 'reactstrap'
-import heroImg from '..//assets/images/hero-img01.jpg'
-import heroImg02 from '..//assets/images/hero-img02.jpg'
-import heroVideo from '..//assets/images/hero-video.mp4'
-import worldImage from '..//assets/images/world.png'
+import heroImg from '../assets/images/hero-img01.jpg'
+import heroImg02 from '../assets/images/hero-img02.jpg'
+import heroVideo from '../assets/images/hero-video.mp4'
+import worldImage from '../assets/images/world.png'
 import Subtitle from '../shared/Subtitle'
 import SearchBar from '../shared/SearchBar'
 import ServiceList from '../services/ServiceList'
@@ -12,6 +11,7 @@ import FeatureList from '../components/Featured-tours/FeatureList'
 import Experience from '../shared/Experience'
 import ImageGallery from '../components/Image-gallery/ImageGallery'
 import Testimonials from '../components/testimonials/Testimonials'
+import Newsletter from '../shared/Newsletter'
 const Home = () => {
   return (
     <div className='full'>
@@ -82,6 +82,13 @@ const Home = () => {
         </h2>
         <Testimonials/>
       </div>
+
+      {/* Newsletter starts */}
+
+      <div className="newletter">
+        <Newsletter/>
+      </div>
+      
     </div>
   )
 }

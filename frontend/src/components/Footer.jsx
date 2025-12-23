@@ -11,7 +11,7 @@ const Footer = () => {
 
         {/* Brand */}
         <div className="footer_box">
-          <h2 className="footer_logo">
+          <h2 className="footer_logo text-white">
             Travel<span>Xpress</span>
           </h2>
           <p>

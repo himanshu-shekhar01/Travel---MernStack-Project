@@ -1,0 +1,111 @@
+.booking {
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    position: sticky;
+    top: 80px;
+    background: #fff;
+  }
+  
+  /* TOP */
+  .booking__top {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+  }
+  
+  .booking__top h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .booking__top h3 span {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .tour_rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  .tour_rating i {
+    color: var(--secondary-color);
+  }
+  
+  /* FORM */
+  .booking__form {
+    margin-top: 1.5rem;
+  }
+  
+  .booking__form h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .booking_info-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    margin-bottom: 2rem;
+  }
+  
+  .booking_info-form input:focus {
+    border-color: var(--secondary-color);
+  }
+  
+  /* bottom */
+  .booking-bottom {
+    margin-top: 1.5rem;
+  }
+  
+  .booking-bottom h5 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .booking-bottom span {
+    font-weight: 600;
+  }
+  
+  .booking-bottom .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* total highlight */
+  .booking-bottom .list-group-item:last-child {
+    border-top: 1px solid #ddd !important;
+    padding-top: 1rem;
+  }
+  
+  .booking-bottom .list-group-item:last-child h5 {
+    font-size: 1.1rem;
+  }
+  
+  .booking-bottom .list-group-item:last-child span {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+  }
+  
+  /* button */
+  .booking-bottom .btn {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  /* responsive */
+  @media (max-width: 992px) {
+    .booking {
+      position: static;
+      margin-top: 2rem;
+    }
+  }
+  

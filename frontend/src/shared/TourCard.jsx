@@ -49,7 +49,7 @@ const TourCard = ({ tour }) => {
 
                     {/* Title */}
                     <h5 className="tour_title">
-                        <Link to={`/tours/${id}`}>{title}</Link>
+                        <Link to={`/tour/${id}`}>{title}</Link>
                     </h5>
 
                     {/* Bottom */}
