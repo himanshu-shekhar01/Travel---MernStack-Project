@@ -1,23 +1,55 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FormGroup, Form, Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/login.css';
 import registerImg from '../assets/images/register.png'
 import userIcon from '../assets/images/user.png'
+import { AuthContext } from '../context/AuthContext.jsx';
+import { BASE_URL } from '../utils/config.js';
 
 const Register = () => {
   const [cred, setCred] = useState({
-    username: undefined,
-    email: undefined,
-    password: undefined
+    username: "",
+    email: "",
+    password: ""
   });
+
+  const {dispatch} = useContext(AuthContext)
+  const navigate = useNavigate();
   const handlechange = (e) =>{
     setCred(prev => ({...prev, [e.target.id]: e.target.value}))
   }
 
-  const handleClick = (e) =>{
+  const handleClick = async (e) => {
     e.preventDefault();
-  }
+  
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(cred)
+      });
+  
+      const result = await res.json();
+      dispatch({ type: "REGISTER_SUCCESS" });
+      
+  
+      if (!res.ok) {
+        alert(result.message);
+        return;
+      }
+  
+      alert("Registration successful! Please login.");
+      navigate("/login");
+
+    } catch (err) {
+      alert("Something went wrong");
+      alert(err.message);
+    }
+  };
+  
   return (
     <section className='m-auto'>
       <div className='login_container full flex'>

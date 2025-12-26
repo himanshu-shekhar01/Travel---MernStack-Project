@@ -13,7 +13,7 @@ const nav_links = [
         display: "About"
     },
     {
-        path: "/tour",
+        path: "/tours",
         display: "Tours"
     },
 ]
