@@ -18,11 +18,11 @@ const useFetch = (url) => {
         }
 
         const result = await res.json();
-        setData(result.data ); // supports API structure
+        setData(result.data );
         setLoading(false);
       } catch (err) {
         setError(err.message);
-        setLoading(false);
+        // setLoading(false);
       } 
     };
 

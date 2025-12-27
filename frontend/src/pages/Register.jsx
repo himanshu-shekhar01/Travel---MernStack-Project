@@ -33,22 +33,23 @@ const Register = () => {
       });
   
       const result = await res.json();
-      dispatch({ type: "REGISTER_SUCCESS" });
-      
   
       if (!res.ok) {
+        dispatch({ type: "REGISTER_FAILURE", payload: result.message });
         alert(result.message);
         return;
       }
   
+      dispatch({ type: "REGISTER_SUCCESS" });
       alert("Registration successful! Please login.");
       navigate("/login");
-
+  
     } catch (err) {
+      dispatch({ type: "REGISTER_FAILURE", payload: err.message });
       alert("Something went wrong");
-      alert(err.message);
     }
   };
+  
   
   return (
     <section className='m-auto'>

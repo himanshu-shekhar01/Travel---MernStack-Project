@@ -9,9 +9,10 @@ import Booking from '../components/Booking/Booking'
 
 const TourDetails = () => {
   const { id } = useParams();
-  const reviewMsgRef = useRef('');
+  const reviewMsgRef = useRef(null);
   const [tourRating, setTourRating] = useState(null);
 
+  //this is static file fetching later fetch
   const tour = tourData.find(tour => tour.id === id);
   //destructure tour object
   const { photo, title, desc, price, address, reviews, city, distance, maxGroupSize } = tour;

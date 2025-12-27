@@ -9,7 +9,8 @@ const SearchBar = () => {
     const maxGroupSizeRef = useRef(0)
     const navigate = useNavigate()
 
-    const secondHandler = async() =>{
+    const searchHandler = async(e) =>{
+        e.preventDefault();
         const location = locationRef.current.value;
         const distance = distanceRef.current.value;
         const maxGroupSize = maxGroupSizeRef.current.value;
@@ -23,7 +24,8 @@ const SearchBar = () => {
             alert('Something went wrong')
         }
         const result = await res.json()
-        navigate(`/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`, {state: result.data})
+        navigate(`/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
+        {state: result.data})
 
     }
 
@@ -57,7 +59,7 @@ const SearchBar = () => {
                    <input ref={maxGroupSizeRef} className='input' type="number" placeholder='0' />
                 </div>
             </FormGroup>
-            <span className='search_icon' type='submit' onClick={secondHandler}>
+            <span className='search_icon' type='submit' onClick={searchHandler}>
                 <i class="ri-search-2-line"></i>
             </span>
         </Form>

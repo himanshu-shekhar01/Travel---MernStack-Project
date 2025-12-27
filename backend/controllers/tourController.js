@@ -69,7 +69,7 @@ export const getSingleTour = async (req, res) => {
        const tour = await Tour.findById(id).populate('reviews');
         res.status(200).json({
             success: true,
-            message: "Successfully deleted",
+            message: "Successfully found",
             data: tour
         });
     }

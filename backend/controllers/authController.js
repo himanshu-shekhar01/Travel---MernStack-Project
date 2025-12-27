@@ -77,16 +77,15 @@ export const login = async (req, res) => {
       res
         .cookie("accessToken", token, {
           httpOnly: true,
-          sameSite: "lax",
-          secure: false // true in production (HTTPS)
+          expires:token.expiresIn
         })
         .status(200)
         .json({
           success: true,
           message: "Login successful",
-          data: rest,
+          data: {...rest},
           role,
-          token // optional (for frontend/localStorage)
+          token // for frontend localStorage 
         });
   
     } catch (error) {

@@ -22,38 +22,43 @@ const Login = () => {
       [e.target.id]: e.target.value
     }));
   };
-
   const handleClick = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
-
+  
     try {
       const res = await fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: "include", // IMPORTANT (cookies)
+        credentials: "include",
         body: JSON.stringify(cred)
       });
-
+  
       const result = await res.json();
-
+  
       if (!res.ok) {
         dispatch({ type: "LOGIN_FAILURE", payload: result.message });
         alert(result.message);
         return;
       }
-
-      dispatch({ type: "LOGIN_SUCCESS", payload: result.data });
+      console.log(result.data);
+  
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: result.data || result.user
+      });
+  
       alert("Login successful");
       navigate("/");
-
+  
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.message });
       alert("Failed to connect to server");
     }
   };
+  
 
   return (
     <section className="m-auto">
