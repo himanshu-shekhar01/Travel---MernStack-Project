@@ -36,15 +36,15 @@ const Home = () => {
         </div>
         <div className="right">
           <div className="hero__img-box">
-            <img src={heroImg} alt="" />
+          <img src={heroImg02} alt="" />
           </div>
 
           <div className="hero__img-box mt-5">
-            <video src={heroVideo} controls />
+            <video src={heroVideo} controls autoPlay muted  />
           </div>
 
           <div className="hero__img-box mt-10">
-            <img src={heroImg02} alt="" />
+            <img src={heroImg} alt="" />
           </div>
         </div>
       </section>
@@ -61,6 +61,7 @@ const Home = () => {
           Our Featured Tour
         </h2>
             <FeatureList />
+
       </div>
       <div className='experience'>
         <Subtitle subtitle={"Experience"} />

@@ -5,7 +5,7 @@ import "./tourCard.css";
 
 const TourCard = ({ tour }) => {
   const {
-    id,
+    _id,
     title,
     photo,
     price,
@@ -43,7 +43,7 @@ const TourCard = ({ tour }) => {
 
           {/* Title */}
           <h5 className="tour_title">
-            <Link to={`/tours/${id}`}>{title}</Link>
+            <Link to={`/tours/${_id}`}>{title}</Link>
           </h5>
  
           {/* Bottom */}
@@ -52,7 +52,7 @@ const TourCard = ({ tour }) => {
               ₹{price} <span>/ per person</span>
             </h5>
 
-            <Link to={`/tours/${id}`} className="btn book_btn">
+            <Link to={`/tours/${_id}`} className="btn book_btn">
               Book Now
             </Link>
           </div>

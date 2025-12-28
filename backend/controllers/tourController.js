@@ -125,6 +125,9 @@ export const getTourBySearch = async (req, res) => {
             message: "Successfully get searched tours",
             data: tours,
         });
+
+
+        
     } catch (err) {
         res.status(500).json({
             success: false,

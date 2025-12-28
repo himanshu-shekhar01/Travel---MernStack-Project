@@ -17,13 +17,12 @@ const Header = () => {
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
-    navigate("/login");
+    navigate("/");
   };
 
   return (
-    <nav className='header'>
+    <nav className='header sticky_header'>
       <Container>
-        <Row>
           <div className="flex justify-evenly items-center">
 
             {/* logo */}
@@ -64,12 +63,12 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <span className='font-bold'>
+                    <span className=''>
                       {user.username}
                     </span>
 
                     <Button
-                      className='secondary__btn font-bold'
+                      className='text-black font-bold cursor-pointer'
                       onClick={logout}
                     >
                       Logout
@@ -85,7 +84,6 @@ const Header = () => {
             </div>
 
           </div>
-        </Row>
       </Container>
     </nav>
   )

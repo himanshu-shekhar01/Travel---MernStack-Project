@@ -7,6 +7,8 @@ import userIcon from '../assets/images/user.png'
 import { AuthContext } from '../context/AuthContext.jsx';
 import { BASE_URL } from '../utils/config.js';
 
+
+
 const Register = () => {
   const [cred, setCred] = useState({
     username: "",

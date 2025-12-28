@@ -51,8 +51,8 @@ const Tours = () => {
           {!loading && !error && (
             <>
               <div className="tour__grid">
-                {tours?.map((tour) => (
-                  <TourCard key={tour.id} tour={tour} />
+                {tours.map((tour,id) => (
+                  <TourCard key={id} tour={tour} />
                 ))}
               </div>
 
