@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
-import "./tourCard.css";
+import "./tourcard.css";
 
 const TourCard = ({ tour }) => {
   const {
