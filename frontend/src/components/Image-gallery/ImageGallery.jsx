@@ -1,7 +1,7 @@
 import React from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import galleryImages from "./Gallery"; // adjust path if needed
-import "./imageGallery.css";
+import "./ImageGallery.css";
 
 const ImageGallery = () => {
   return (
