@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Container, Row, Button } from 'reactstrap'
-import './header.css'
+import './Header.css'
 import { AuthContext } from '../context/AuthContext'
 
 const nav_links = [
