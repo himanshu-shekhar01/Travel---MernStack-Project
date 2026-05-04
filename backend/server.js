@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import mongoose, { connect, mongo } from 'mongoose';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+
 import tourRoute from './routers/tours.js';
 import userRoute from './routers/users.js';
 import authRoute from './routers/auth.js';
@@ -10,44 +11,47 @@ import reviewRoute from './routers/reviews.js';
 import bookingRoute from './routers/bookings.js';
 
 dotenv.config();
+
 const app = express();
-const PORT = 8000;
-const corsOptions = {
-    origin: true,
-    credentials: true,
-}
+const PORT = process.env.PORT || 8000;
 
-//database connection
-mongoose.set('strictQuery', false);
-const connectDB = async()=>{
-    try{
-        await mongoose.connect(process.env.MongoDB_URI,{
-           
 
-        })
-        console.log('MongoDB connected successfully');
-    }
-    catch(error){
-        console.log('Error connecting to database',error);
-    }
-}
-//for testing server
-app.get('/',(req,res)=>{
-    res.send('API is running...');
-})
+app.use(cors({
+  origin: "https://travel-mern-stack-project-five.vercel.app/",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
-//middleware
+
 app.use(express.json());
-app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use('/api/v1/auth',authRoute);
-app.use('/api/v1/tours',tourRoute);
-app.use('/api/v1/users',userRoute);
-app.use('/api/v1/reviews',reviewRoute);
+
+
+mongoose.set('strictQuery', false);
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MongoDB_URI);
+    console.log('MongoDB connected successfully');
+  } catch (error) {
+    console.log('Error connecting to database', error);
+  }
+};
+
+// ✅ Test route
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+// ✅ Routes
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/tours', tourRoute);
+app.use('/api/v1/users', userRoute);
+app.use('/api/v1/reviews', reviewRoute);
 app.use('/api/v1/bookings', bookingRoute);
 
-
-app.listen(PORT,()=>{
-    connectDB();
-    console.log(`Server is running on port ${PORT}`);
+// ✅ Start server
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server is running on port ${PORT}`);
 });
