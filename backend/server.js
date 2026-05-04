@@ -16,15 +16,19 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173",                     // local frontend
-    // "https://travel-mern-stack-project-five.vercel.app/"       // deployed frontend
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "http://localhost:5173",
   credentials: true
 }));
-app.options('*', cors());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 
 app.use(express.json());
 app.use(cookieParser());

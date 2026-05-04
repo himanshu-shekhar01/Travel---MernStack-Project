@@ -22,7 +22,6 @@ const Home = () => {
               <Subtitle subtitle={'Know Before You'} />
               <img src={worldImage} alt="" className="w-15 h-15" />
             </div>
-
             <h1 className="hero_title text-4xl font-semibold">
               Traveling opens door <br />
               to creating <span className="highlight text-orange-400">memories</span>
