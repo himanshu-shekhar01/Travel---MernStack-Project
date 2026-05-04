@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8000;
 
 
 app.use(cors({
-  origin: "https://travel-mern-stack-project-five.vercel.app/",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -38,7 +38,6 @@ const connectDB = async () => {
   }
 };
 
-// ✅ Test route
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
