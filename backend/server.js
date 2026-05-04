@@ -19,11 +19,12 @@ const PORT = process.env.PORT || 8000;
 app.use(cors({
   origin: [
     "http://localhost:5173",                     // local frontend
-    "https://your-vercel-app.vercel.app"        // deployed frontend
+    // "https://travel-mern-stack-project-five.vercel.app/"       // deployed frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
+app.options('*', cors());
 
 app.use(express.json());
 app.use(cookieParser());
