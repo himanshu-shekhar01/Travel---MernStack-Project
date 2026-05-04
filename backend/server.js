@@ -17,22 +17,34 @@ const PORT = process.env.PORT || 8000;
 
 
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
+// app.use(cors({
+//   origin: "http://localhost:5173",
+//   credentials: true
+// }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://travel-mern-stack-project-mu.vercel.app/");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://travel-mern-stack-project-mu.vercel.app/");
+//   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+//   res.header("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
 
+// app.use(express.json());
+// app.use(cookieParser());
+// 1. Remove the manual res.header block entirely. 
+// 2. Use ONLY the cors() middleware configured like this:
+
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://travel-mern-stack-project-mu.vercel.app"],
+  credentials: true, // This allows the browser to accept the cookie
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cookieParser());
-
+app.use(cookieParser()); // Ensure this is AFTER cors but BEFORE routes
 
 mongoose.set('strictQuery', false);
 
