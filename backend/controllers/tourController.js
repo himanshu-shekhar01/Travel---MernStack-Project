@@ -49,8 +49,7 @@ export const deleteTour = async (req, res) => {
         await Tour.findByIdAndDelete(id);
         res.status(200).json({
             success: true,
-            message: "Successfully deleted",
-            data: updateTour
+            message: "Successfully deleted"
         });
     }
     catch(err){
@@ -158,17 +157,32 @@ export const getTourBySearch = async (req, res) => {
 //     }
 // }
 export const getFeaturedTours = async (req, res) => {
-  const tours = await Tour.find({ featured: true });
-  res.json(tours);
-};
+  try {
+    const tours = await Tour.find({ featured: true })
+      .populate("reviews")
+      .limit(8);
 
+    res.status(200).json({
+      success: true,
+      count: tours.length,
+      message: "Successfully fetched featured tours",
+      data: tours,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch featured tours",
+      error: err.message,
+    });
+  }
+};
 //get tour counts
 export const getTourCount = async (req, res) => {
     try{
         const tourCount = await Tour.estimatedDocumentCount();
         res.status(200).json({
             success: true,
-            data: tourCount
+            count: tourCount
         });
     }
     catch(err){
