@@ -34,7 +34,7 @@ const SearchBar = () => {
         <Form className='flex'>
             <FormGroup className='flex gap-2 form_group form_group_fast'>
                 <span>
-                <i class="ri-map-pin-line"></i>
+                <i className="ri-map-pin-line"></i>
                 </span>
                 <div>
                     <h6>Location</h6>
@@ -43,7 +43,7 @@ const SearchBar = () => {
             </FormGroup>
             <FormGroup className='flex gap-2 form_group form_group_fast'>
                 <span>
-                <i class="ri-map-pin-time-line"></i>
+                <i className="ri-map-pin-time-line"></i>
                 </span>
                 <div>
                     <h6>Distance</h6>
@@ -52,7 +52,7 @@ const SearchBar = () => {
             </FormGroup>
             <FormGroup className='flex gap-2 form_group'>
                 <span>
-                <i class="ri-group-line"></i>
+                <i className="ri-group-line"></i>
                 </span>
                 <div>
                     <h6>Max People</h6>
@@ -60,7 +60,7 @@ const SearchBar = () => {
                 </div>
             </FormGroup>
             <span className='search_icon' type='submit' onClick={searchHandler}>
-                <i class="ri-search-2-line"></i>
+                <i className="ri-search-2-line"></i>
             </span>
         </Form>
     </div>

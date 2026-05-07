@@ -19,7 +19,7 @@ const FeatureList = () => {
     }
     <div className="feature_grid">
       {!loading && !error && tourData.map(tour => (
-        <TourCard tour={tour} key={tour._id} />
+        <TourCard tour={tour} key={tour.id} />
       ))}
     </div>
     </>

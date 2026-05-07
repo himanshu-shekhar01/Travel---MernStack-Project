@@ -1,82 +1,85 @@
-import React, { useEffect, useState } from "react";
-import CommonSection from "../shared/CommonSection";
-import "../styles/tours.css";
-import SearchBar from "../shared/SearchBar";
-import TourCard from "../shared/TourCard";
-import Newsletter from "../shared/Newsletter";
-import { BASE_URL } from "../utils/config";
-import useFetch from "../hooks/useFetch";
+// import React, { useEffect, useState } from "react";
+// import CommonSection from "../shared/CommonSection";
+// import "../styles/tours.css";
+// import SearchBar from "../shared/SearchBar";
+// import TourCard from "../shared/TourCard";
+// import Newsletter from "../shared/Newsletter";
+// import { BASE_URL } from "../utils/config";
+// import useFetch from "../hooks/useFetch";
 
-const Tours = () => {
-  const [page, setPage] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
+// const Tours = () => {
+//   const [page, setPage] = useState(0);
+//   const [pageCount, setPageCount] = useState(0);
 
-  //fetch api data
-  const { data: tours, loading, error } = useFetch(
-    `${BASE_URL}/tours?page=${page}`
-  );
+//   //fetch api data
+//   const { data: tours, loading, error } = useFetch(
+//     `${BASE_URL}/tours?page=${page}`
+//   );
 
-  const { data: tourCount } = useFetch(
-    `${BASE_URL}/tours/search/getTourCount`
-  );
+//   const { data: tourCount } = useFetch(
+//     `${BASE_URL}/tours/search/getTourCount`
+//   );
 
-  useEffect(() => {
-    if (tourCount) {
-      const pages = Math.ceil(tourCount / 8);
-      setPageCount(pages);
-      window.scrollTo(0, 0);
-    }
-  }, [page, tourCount, tours]);
+//   useEffect(() => {
+//   if (tourCount && !isNaN(tourCount)) {
+//     const pages = Math.ceil(Number(tourCount) / 8);
+//     setPageCount(pages);
+//   }
 
-  return (
-    <>
-      <CommonSection title="All Tours" />
+//   window.scrollTo(0, 0);
+// }, [page, tourCount]);
 
-      <section className="full">
-        <div className="container__custom">
-          <SearchBar />
-        </div>
-      </section>
+//   return (
+//     <>
+//       <CommonSection title="All Tours" />
 
-      <section className="tourcss">
-        <div className="container__custom">
+//       <section className="full">
+//         <div className="container__custom">
+//           <SearchBar />
+//         </div>
+//       </section>
 
-          {/* LOADING */}
-          {loading && <h4 className="text-center">Loading...</h4>}
+//       <section className="tourcss">
+//         <div className="container__custom">
 
-          {/* ERROR */}
-          {error && <h4 className="text-center">{error}</h4>}
+//           {/* LOADING */}
+//           {loading && <h4 className="text-center">Loading...</h4>}
 
-          {/* TOURS */}
-          {!loading && !error && (
-            <>
-              <div className="tour__grid">
-                {tours.map((tour,id) => (
-                  <TourCard key={id} tour={tour} />
-                ))}
-              </div>
+//           {/* ERROR */}
+//           {error && <h4 className="text-center">{error}</h4>}
 
-              {/* PAGINATION */}
-              <div className="pagination">
-                {[...Array(pageCount).keys()].map((number) => (
-                  <span
-                    key={number}
-                    onClick={() => setPage(number)}
-                    className={page === number ? "active_page" : ""}
-                  >
-                    {number + 1}
-                  </span>
-                ))}
-              </div>
-            </>
-          )}
+//           {/* TOURS */}
+//           {!loading && !error && (
+//             <>
+//               <div className="tour__grid">
+//                 {tours.map((tour,id) => (
+//                   <TourCard key={id} tour={tour} />
+//                 ))}
+//               </div>
 
-        </div>
-      </section>
+//               {/* PAGINATION */}
+//               <div className="pagination">
+//                 {[...Array(pageCount).keys()].map((number) => (
+//                   <span
+//                     key={number}
+//                     onClick={() => setPage(number)}
+//                     className={page === number ? "active_page" : ""}
+//                   >
+//                     {number + 1}
+//                   </span>
+//                 ))}
+//               </div>
+//             </>
+//           )}
 
-      <Newsletter />
-    </>
-  );
-};
+//         </div>
+//       </section>
 
-export default Tours;
+//       <Newsletter />
+//     </>
+//   );
+// };
+
+// export default Tours;
+
+
